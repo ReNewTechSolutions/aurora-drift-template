@@ -14,27 +14,33 @@
 - ✨ **Custom Sparkle Drift Effect**  
   Lightweight JS-based canvas particles that float gently across the screen.
 
-- 🌙 **Dark Mode Support**  
-  Sparkle animation dynamically adjusts to system color scheme preferences.
+- 🌗 **Dark Mode + Theme Toggle**  
+  Automatically adapts to system theme, or lets users switch between Ocean and Sunset.
 
 - 💻 **Responsive Design**  
   Optimized for mobile, tablets, and desktops.
 
-- 🌈 **Minimal Setup**  
+- ⚡ **Minimal Setup**  
   Just HTML, CSS, and JS — no frameworks or build tools required.
 
 ---
 
-## 📁 File Structure
+## 🧩 File Structure
 
 ```
-/aurora-drift-template
-│
-├── index.html          # Main entry file
-├── styles.css          # Gradient, layout, and typography styles
-├── sparkle.js          # Animated canvas sparkle system
-├── favicon.ico         # Optional favicon icon
-└── /screenshots        # Preview images for GitHub or marketing
+📁 aurora-drift-template/
+├── index.html            # Core HTML page
+├── styles.css            # Main styling and theme definitions
+├── sparkle.js            # Canvas sparkle animation
+├── favicon.ico           # Base favicon
+├── favicon_io/           # Additional favicon formats
+│   ├── favicon-32x32.png
+│   ├── favicon-16x16.png
+│   ├── apple-touch-icon.png
+│   └── site.webmanifest
+├── screenshots/
+│   └── aurora-drift-preview.png
+└── LICENSE.txt
 ```
 
 ---
@@ -42,38 +48,42 @@
 ## 🚀 Quick Start
 
 1. Clone the repo:
+   ```bash
+   git clone https://github.com/ReNewTechSolutions/aurora-drift-template.git
+   ```
+2. Open `index.html` in your browser.
 
-```bash
-git clone https://github.com/ReNewTechSolutions/aurora-drift-template.git
-```
-
-2. Open `index.html` in your browser:
-
-```
-cd aurora-drift-template
-open index.html  # Or use your browser
-```
-
-✅ No dependencies. No build tools. Just open and go ✌️
+> No dependencies. No build tools. Just open and go ✌️
 
 ---
 
-## 🔧 Customization Ideas
+## 🔧 Customization
 
-| Element       | How to Change                               |
-|--------------|----------------------------------------------|
-| Colors        | Edit in `styles.css` :root variables         |
-| Sparkle Count | Adjust `length` in `sparkle.js`             |
-| Fonts         | Modify `font-family` in `styles.css`         |
-| Intensity     | Tweak `opacity`, radius, or animation speed |
+| Element             | How to Change                                |
+|---------------------|-----------------------------------------------|
+| **Colors**          | Edit in `:root` CSS variables in `styles.css` |
+| **Sparkle Count**   | Adjust `length` in `sparkle.js`               |
+| **Fonts**           | Modify `font-family` in `styles.css`          |
+| **Themes**          | Update `.theme-ocean` or `.theme-sunset`     |
+| **Image Metadata**  | Swap OpenGraph image in `<head>`             |
 
 ---
 
-## 📸 Social Preview
+## 🌈 Theme Toggle Options
 
-![Aurora Drift Preview](screenshots/aurora-drift-preview.png)
+Aurora Drift supports:
 
-> To update: Upload to **GitHub Settings → Social Preview**
+- System dark/light detection
+- Manual toggle with theme selector
+- Persisted choice with `localStorage`
+
+```html
+<select id="themeSwitcher">
+  <option value="default">Default</option>
+  <option value="theme-ocean">Ocean</option>
+  <option value="theme-sunset">Sunset</option>
+</select>
+```
 
 ---
 
@@ -82,8 +92,15 @@ open index.html  # Or use your browser
 - Personal portfolios
 - Hero sections
 - Product landing pages
-- Aesthetic micro-sites
-- Promo banners
+- Micro-sites and launch teasers
+- Inspirational banners
+
+---
+
+## 🖼️ GitHub Social Preview
+
+1. Go to your repo **Settings > Social preview**
+2. Upload `screenshots/aurora-drift-preview.png`
 
 ---
 
@@ -91,11 +108,11 @@ open index.html  # Or use your browser
 
 This template is licensed to **ReNewTech Solutions © 2025**  
 Use is permitted for demo, educational, and client projects.  
-**Redistribution or reselling without permission is prohibited.**
+**Redistribution or reselling** without permission is strictly prohibited.
 
 ---
 
 ## 👋 Author
 
-Built with 💚 by **ReNewTech Solutions**  
-Got questions? Reach out via [info@renewt3ch.com](mailto:info@renewt3ch.com)
+Built with 💚 by [ReNewTech Solutions](https://renewt3ch.com)  
+Questions? Email: [info@renewt3ch.com](mailto:info@renewt3ch.com)
