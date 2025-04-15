@@ -65,7 +65,7 @@
 | **Sparkle Count**   | Adjust `length` in `sparkle.js`               |
 | **Fonts**           | Modify `font-family` in `styles.css`          |
 | **Themes**          | Update `.theme-ocean` or `.theme-sunset`     |
-| **Image Metadata**  | Swap OpenGraph image in `<head>`             |
+| **Metadata Images** | Swap preview in `index.html` head section     |
 
 ---
 
@@ -73,9 +73,9 @@
 
 Aurora Drift supports:
 
-- System dark/light detection
-- Manual toggle with theme selector
-- Persisted choice with `localStorage`
+- 🌓 System dark/light detection
+- 🎚️ Manual theme toggle selector
+- 💾 Saved preference via `localStorage`
 
 ```html
 <select id="themeSwitcher">
