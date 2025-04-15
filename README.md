@@ -1,6 +1,6 @@
 # ✨ Aurora Drift
 
-> A lightweight animated background template with flowing gradients and gentle sparkle drift — perfect for modern, elegant websites.
+> A lightweight animated background template with flowing gradients, shimmer buttons, and gentle sparkle drift — perfect for modern, elegant websites.
 
 ![Aurora Drift Preview](screenshots/aurora-drift-preview.png)
 
@@ -12,7 +12,10 @@
   Soft, flowing background powered by CSS keyframes.
 
 - ✨ **Custom Sparkle Drift Effect**  
-  Lightweight JS-based canvas particles that float gently across the screen.
+  Lightweight JS-based canvas particles that float gently with orbital motion.
+
+- 🎯 **Animated Buttons with Shimmer**  
+  CTA buttons shimmer on hover and bounce into view with subtle motion.
 
 - 🌗 **Dark Mode + Theme Toggle**  
   Automatically adapts to system theme, or lets users switch between Ocean and Sunset.
@@ -63,8 +66,10 @@
 |---------------------|-----------------------------------------------|
 | **Colors**          | Edit in `:root` CSS variables in `styles.css` |
 | **Sparkle Count**   | Adjust `length` in `sparkle.js`               |
+| **Animation Speed** | Change `speed` or `orbit` values in `sparkle.js` |
 | **Fonts**           | Modify `font-family` in `styles.css`          |
 | **Themes**          | Update `.theme-ocean` or `.theme-sunset`     |
+| **Buttons**         | CSS in `styles.css` under `.cta-btn`          |
 | **Metadata Images** | Swap preview in `index.html` head section     |
 
 ---

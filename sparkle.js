@@ -1,5 +1,3 @@
-// sparkle.js — Aurora Drift Canvas Sparkle Effect with Dark Mode Support
-
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('sparkle-canvas');
   if (!canvas) return;
@@ -18,25 +16,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const sparkleColor = prefersDark ? '#dddddd' : '#ffffff';
-  const particles = Array.from({ length: 50 }, () => createParticle());
+  const sparkleColor = prefersDark ? '#cccccc' : '#ffffff';
+
+  const particles = Array.from({ length: 60 }, () => createParticle());
 
   function createParticle() {
+    const angle = Math.random() * 360;
+    const radius = Math.random() * 1.2 + 0.3;
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 1.5 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: (Math.random() - 0.5) * 0.3
+      radius,
+      opacity: Math.random() * 0.8 + 0.2,
+      angle,
+      orbit: Math.random() * 0.5 + 0.5,
+      speed: Math.random() * 0.5 + 0.2
     };
   }
 
   function updateParticles() {
     particles.forEach(p => {
-      p.x += p.speedX;
-      p.y += p.speedY;
-      if (p.x < 0 || p.x > width) p.speedX *= -1;
-      if (p.y < 0 || p.y > height) p.speedY *= -1;
+      p.angle += p.speed * 0.01;
+      p.x += Math.cos(p.angle) * p.orbit;
+      p.y += Math.sin(p.angle) * p.orbit;
     });
   }
 
@@ -44,10 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = sparkleColor;
     particles.forEach(p => {
+      ctx.globalAlpha = p.opacity;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
     });
+    ctx.globalAlpha = 1;
   }
 
   function animate() {
@@ -58,22 +62,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 });
-
-// Theme Switcher Logic
-const themeSwitcher = document.getElementById('themeSwitcher');
-if (themeSwitcher) {
-  const savedTheme = localStorage.getItem('aurora-theme');
-  if (savedTheme && savedTheme !== 'default') {
-    document.body.classList.add(savedTheme);
-    themeSwitcher.value = savedTheme;
-  }
-
-  themeSwitcher.addEventListener('change', () => {
-    document.body.classList.remove('theme-ocean', 'theme-sunset');
-    const selected = themeSwitcher.value;
-    if (selected !== 'default') {
-      document.body.classList.add(selected);
-    }
-    localStorage.setItem('aurora-theme', selected);
-  });
-}
