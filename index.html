@@ -1,44 +1,75 @@
-<!-- Aurora Drift: Animated Sparkle Gradient Background Template -->
+<!-- Aurora Drift: Enhanced Animated Background Template -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Aurora Drift: A lightweight animated HTML5 background template with shimmer, gradient motion, and sparkle drift." />
-  <meta property="og:title" content="Aurora Drift" />
-  <meta property="og:description" content="A lightweight animated background template with flowing gradients and gentle sparkle drift." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/ReNewTechSolutions/aurora-drift-template/main/screenshots/aurora-drift-preview.png" />
-  <meta property="og:url" content="https://github.com/ReNewTechSolutions/aurora-drift-template" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="screenshots/aurora-drift-preview.png" />
   <title>Aurora Drift Template</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <!-- Favicon Support -->
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
-<link rel="manifest" href="favicon_io/site.webmanifest" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="theme-toggle">
-    <select id="themeSwitcher" aria-label="Select Theme">
-      <option value="default">🌸 Default</option>
-      <option value="theme-ocean">🌊 Ocean</option>
-      <option value="theme-sunset">🌅 Sunset</option>
-    </select>
-  </div>
-  
+  <!-- Sparkle Canvas -->
   <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Main Content -->
   <main class="content">
     <h1>Aurora Drift</h1>
-    <p>Lightweight animated gradient & particle shimmer for elegant web pages.</p>
+    <p>Dynamic animated gradient & shimmer experience for modern, elegant websites.</p>
+
+    <!-- CTA Buttons -->
     <div class="cta-buttons">
       <a class="cta-btn" href="https://github.com/ReNewTechSolutions/aurora-drift-template" target="_blank">View on GitHub</a>
       <a class="cta-btn" href="https://renewtechsolutions.github.io/aurora-drift-template/" target="_blank">Live Demo</a>
     </div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <label for="themeSwitcher">🎨 Theme:</label>
+      <select id="themeSwitcher">
+        <option value="default">Default</option>
+        <option value="theme-ocean">Ocean</option>
+        <option value="theme-sunset">Sunset</option>
+      </select>
+    </div>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ReNewTech Solutions • Built with 💚</p>
+  </footer>
+
+  <!-- Sparkle JS -->
   <script src="sparkle.js"></script>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const savedTheme = localStorage.getItem('aurora-theme');
+    if (savedTheme && savedTheme !== 'default') {
+      document.body.classList.add(savedTheme);
+      themeSwitcher.value = savedTheme;
+    }
+
+    themeSwitcher.addEventListener('change', () => {
+      document.body.classList.remove('theme-ocean', 'theme-sunset');
+      const selected = themeSwitcher.value;
+      if (selected !== 'default') {
+        document.body.classList.add(selected);
+      }
+      localStorage.setItem('aurora-theme', selected);
+    });
+  </script>
+
 </body>
 </html>

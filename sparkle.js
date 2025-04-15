@@ -1,3 +1,5 @@
+// sparkle.js — Aurora Drift Sparkle Background with Theme Awareness
+
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('sparkle-canvas');
   if (!canvas) return;
@@ -15,30 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = height;
   });
 
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const sparkleColor = prefersDark ? '#cccccc' : '#ffffff';
+  // Detect current or preferred color scheme
+  function getSparkleColor() {
+    const body = document.body;
+    if (body.classList.contains('theme-ocean') || body.classList.contains('theme-sunset')) {
+      return '#ffffff';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches || body.classList.contains('dark')) {
+      return '#cccccc';
+    } else {
+      return '#ffffff';
+    }
+  }
 
-  const particles = Array.from({ length: 60 }, () => createParticle());
+  let sparkleColor = getSparkleColor();
+
+  const particles = Array.from({ length: 50 }, () => createParticle());
 
   function createParticle() {
-    const angle = Math.random() * 360;
-    const radius = Math.random() * 1.2 + 0.3;
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      radius,
-      opacity: Math.random() * 0.8 + 0.2,
-      angle,
-      orbit: Math.random() * 0.5 + 0.5,
-      speed: Math.random() * 0.5 + 0.2
+      radius: Math.random() * 1.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4
     };
   }
 
   function updateParticles() {
     particles.forEach(p => {
-      p.angle += p.speed * 0.01;
-      p.x += Math.cos(p.angle) * p.orbit;
-      p.y += Math.sin(p.angle) * p.orbit;
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if (p.x < 0 || p.x > width) p.speedX *= -1;
+      if (p.y < 0 || p.y > height) p.speedY *= -1;
     });
   }
 
@@ -46,18 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = sparkleColor;
     particles.forEach(p => {
-      ctx.globalAlpha = p.opacity;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
     });
-    ctx.globalAlpha = 1;
   }
 
   function animate() {
     drawParticles();
     updateParticles();
     requestAnimationFrame(animate);
+  }
+
+  // Update sparkle color when theme changes
+  const themeSwitcher = document.getElementById('themeSwitcher');
+  if (themeSwitcher) {
+    themeSwitcher.addEventListener('change', () => {
+      sparkleColor = getSparkleColor();
+    });
   }
 
   animate();

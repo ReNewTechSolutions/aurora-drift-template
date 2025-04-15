@@ -1,6 +1,6 @@
 # ✨ Aurora Drift
 
-> A lightweight animated background template with flowing gradients, shimmer buttons, and gentle sparkle drift — perfect for modern, elegant websites.
+> A lightweight animated background template with flowing gradients, shimmer buttons, dynamic theme toggle, and gentle sparkle drift — perfect for modern, elegant websites.
 
 ![Aurora Drift Preview](screenshots/aurora-drift-preview.png)
 
@@ -14,11 +14,14 @@
 - ✨ **Custom Sparkle Drift Effect**  
   Lightweight JS-based canvas particles that float gently with orbital motion.
 
-- 🎯 **Animated Buttons with Shimmer**  
+- 🖱️ **Animated Buttons with Shimmer**  
   CTA buttons shimmer on hover and bounce into view with subtle motion.
 
-- 🌗 **Dark Mode + Theme Toggle**  
-  Automatically adapts to system theme, or lets users switch between Ocean and Sunset.
+- 🎨 **Theme Toggle + Dark Mode Support**  
+  Automatically adapts to system theme, or lets users manually toggle Ocean and Sunset modes.
+
+- ⚙️ **Live Theme Persistence**  
+  Theme preference is saved in localStorage for consistent experience.
 
 - 💻 **Responsive Design**  
   Optimized for mobile, tablets, and desktops.
@@ -32,16 +35,16 @@
 
 ```
 📁 aurora-drift-template/
-├── index.html            # Core HTML page
-├── styles.css            # Main styling and theme definitions
-├── sparkle.js            # Canvas sparkle animation
-├── favicon.ico           # Base favicon
-├── favicon_io/           # Additional favicon formats
+├── index.html              # Core HTML page
+├── styles.css              # Main styling and themes
+├── sparkle.js              # Canvas sparkle animation with theme support
+├── favicon.ico             # Primary favicon
+├── favicon_io/             # Favicon bundle for platforms
 │   ├── favicon-32x32.png
 │   ├── favicon-16x16.png
 │   ├── apple-touch-icon.png
 │   └── site.webmanifest
-├── screenshots/
+├── screenshots/            # Social preview image
 │   └── aurora-drift-preview.png
 └── LICENSE.txt
 ```
@@ -62,25 +65,25 @@
 
 ## 🔧 Customization
 
-| Element             | How to Change                                |
-|---------------------|-----------------------------------------------|
-| **Colors**          | Edit in `:root` CSS variables in `styles.css` |
-| **Sparkle Count**   | Adjust `length` in `sparkle.js`               |
-| **Animation Speed** | Change `speed` or `orbit` values in `sparkle.js` |
-| **Fonts**           | Modify `font-family` in `styles.css`          |
-| **Themes**          | Update `.theme-ocean` or `.theme-sunset`     |
-| **Buttons**         | CSS in `styles.css` under `.cta-btn`          |
-| **Metadata Images** | Swap preview in `index.html` head section     |
+| Element             | How to Change                                      |
+|---------------------|-----------------------------------------------------|
+| **Colors**          | Edit `:root` variables in `styles.css`             |
+| **Sparkle Count**   | Adjust `length` in `sparkle.js`                    |
+| **Animation Speed** | Change `speedX/Y` or gradient keyframes            |
+| **Fonts**           | Modify `font-family` in `styles.css`               |
+| **Themes**          | Customize `.theme-ocean` / `.theme-sunset` styles  |
+| **Buttons**         | Update `.cta-btn` and hover effects in CSS         |
+| **Metadata Images** | Replace favicon files or social preview image      |
 
 ---
 
-## 🌈 Theme Toggle Options
+## 🌈 Theme Toggle
 
 Aurora Drift supports:
 
 - 🌓 System dark/light detection
 - 🎚️ Manual theme toggle selector
-- 💾 Saved preference via `localStorage`
+- 💾 Preference saved via `localStorage`
 
 ```html
 <select id="themeSwitcher">
