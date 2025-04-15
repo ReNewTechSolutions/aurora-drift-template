@@ -71,7 +71,7 @@
 | **Sparkle Count**   | Adjust `length` in `sparkle.js`                    |
 | **Animation Speed** | Change `speedX/Y` or gradient keyframes            |
 | **Fonts**           | Modify `font-family` in `styles.css`               |
-| **Themes**          | Customize `.theme-ocean` / `.theme-sunset` styles  |
+| **Themes**          | Edit `.theme-ocean` and `.theme-sunset` in `styles.css` |
 | **Buttons**         | Update `.cta-btn` and hover effects in CSS         |
 | **Metadata Images** | Replace favicon files or social preview image      |
 
@@ -91,6 +91,30 @@ Aurora Drift supports:
   <option value="theme-ocean">Ocean</option>
   <option value="theme-sunset">Sunset</option>
 </select>
+```
+
+Add this to your CSS:
+
+```css
+body.theme-ocean {
+  background: linear-gradient(135deg, #a2d4f7, #087ca7);
+  color: #00334e;
+}
+
+body.theme-sunset {
+  background: linear-gradient(135deg, #ffb347, #ff6961);
+  color: #4d2c2c;
+}
+
+.theme-ocean .cta-btn {
+  background: linear-gradient(135deg, #30cfd0, #330867);
+  color: #fff;
+}
+
+.theme-sunset .cta-btn {
+  background: linear-gradient(135deg, #fc4a1a, #f7b733);
+  color: #fff;
+}
 ```
 
 ---

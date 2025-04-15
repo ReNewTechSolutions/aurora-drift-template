@@ -1,4 +1,4 @@
-// sparkle.js — Aurora Drift Sparkle Background with Theme Awareness
+// sparkle.js — Aurora Drift Canvas Sparkle Effect with Theme Support
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('sparkle-canvas');
@@ -17,20 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = height;
   });
 
-  // Detect current or preferred color scheme
   function getSparkleColor() {
     const body = document.body;
-    if (body.classList.contains('theme-ocean') || body.classList.contains('theme-sunset')) {
-      return '#ffffff';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches || body.classList.contains('dark')) {
-      return '#cccccc';
-    } else {
-      return '#ffffff';
-    }
+    if (body.classList.contains('theme-ocean')) return '#aef6f9';
+    if (body.classList.contains('theme-sunset')) return '#fff4e6';
+    return '#ffffff'; // default sparkle
   }
 
   let sparkleColor = getSparkleColor();
-
   const particles = Array.from({ length: 50 }, () => createParticle());
 
   function createParticle() {
@@ -38,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       x: Math.random() * width,
       y: Math.random() * height,
       radius: Math.random() * 1.5 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.4,
-      speedY: (Math.random() - 0.5) * 0.4
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: (Math.random() - 0.5) * 0.3
     };
   }
 
@@ -68,13 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate);
   }
 
-  // Update sparkle color when theme changes
+  animate();
+
+  // Theme switcher handling
   const themeSwitcher = document.getElementById('themeSwitcher');
+  const savedTheme = localStorage.getItem('aurora-theme');
+  if (savedTheme && savedTheme !== 'default') {
+    document.body.classList.add(savedTheme);
+    if (themeSwitcher) themeSwitcher.value = savedTheme;
+  }
+
   if (themeSwitcher) {
     themeSwitcher.addEventListener('change', () => {
+      document.body.classList.remove('theme-ocean', 'theme-sunset');
+      const selected = themeSwitcher.value;
+      if (selected !== 'default') {
+        document.body.classList.add(selected);
+      }
+      localStorage.setItem('aurora-theme', selected);
       sparkleColor = getSparkleColor();
     });
   }
-
-  animate();
 });
