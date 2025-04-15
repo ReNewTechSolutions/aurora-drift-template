@@ -58,3 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 });
+
+// Theme Switcher Logic
+const themeSwitcher = document.getElementById('themeSwitcher');
+if (themeSwitcher) {
+  const savedTheme = localStorage.getItem('aurora-theme');
+  if (savedTheme && savedTheme !== 'default') {
+    document.body.classList.add(savedTheme);
+    themeSwitcher.value = savedTheme;
+  }
+
+  themeSwitcher.addEventListener('change', () => {
+    document.body.classList.remove('theme-ocean', 'theme-sunset');
+    const selected = themeSwitcher.value;
+    if (selected !== 'default') {
+      document.body.classList.add(selected);
+    }
+    localStorage.setItem('aurora-theme', selected);
+  });
+}
