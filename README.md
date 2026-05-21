@@ -1,89 +1,54 @@
-# ✨ Aurora Drift
+## File Structure
 
-> A lightweight animated background template with flowing gradients, shimmer buttons, dynamic theme toggle, and gentle sparkle drift — perfect for modern, elegant websites.
-
-![Aurora Drift Preview](screenshots/aurora-drift-preview.png)
-
----
-
-## 🌟 Features
-
-- 🎨 **Aesthetic Gradient Animation**  
-  Soft, flowing background powered by CSS keyframes.
-
-- ✨ **Custom Sparkle Drift Effect**  
-  Lightweight JS-based canvas particles that float gently with orbital motion.
-
-- 🖱️ **Animated Buttons with Shimmer**  
-  CTA buttons shimmer on hover and bounce into view with subtle motion.
-
-- 🎨 **Theme Toggle + Dark Mode Support**  
-  Automatically adapts to system theme, or lets users manually toggle Ocean and Sunset modes.
-
-- ⚙️ **Live Theme Persistence**  
-  Theme preference is saved in localStorage for consistent experience.
-
-- 💻 **Responsive Design**  
-  Optimized for mobile, tablets, and desktops.
-
-- ⚡ **Minimal Setup**  
-  Just HTML, CSS, and JS — no frameworks or build tools required.
-
----
-
-## 🧩 File Structure
-
-```
-📁 aurora-drift-template/
-├── index.html              # Core HTML page
-├── styles.css              # Main styling and themes
-├── sparkle.js              # Canvas sparkle animation with theme support
+```txt
+aurora-drift-template/
+├── index.html              # Main HTML page
+├── styles.css              # Layout, animation, and theme styles
+├── sparkle.js              # Canvas sparkle animation
 ├── favicon.ico             # Primary favicon
-├── favicon_io/             # Favicon bundle for platforms
+├── favicon_io/             # Favicon bundle
 │   ├── favicon-32x32.png
 │   ├── favicon-16x16.png
 │   ├── apple-touch-icon.png
 │   └── site.webmanifest
-├── screenshots/            # Social preview image
+├── screenshots/            # Preview images
 │   └── aurora-drift-preview.png
 └── LICENSE.txt
 ```
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/ReNewTechSolutions/aurora-drift-template.git
-   ```
-2. Open `index.html` in your browser.
+Clone the repository:
 
-> No dependencies. No build tools. Just open and go ✌️
+```bash
+git clone https://github.com/ReNewTechSolutions/aurora-drift-template.git
+cd aurora-drift-template
+```
 
----
+Open `index.html` in your browser.
 
-## 🔧 Customization
-
-| Element             | How to Change                                      |
-|---------------------|-----------------------------------------------------|
-| **Colors**          | Edit `:root` variables in `styles.css`             |
-| **Sparkle Count**   | Adjust `length` in `sparkle.js`                    |
-| **Animation Speed** | Change `speedX/Y` or gradient keyframes            |
-| **Fonts**           | Modify `font-family` in `styles.css`               |
-| **Themes**          | Edit `.theme-ocean` and `.theme-sunset` in `styles.css` |
-| **Buttons**         | Update `.cta-btn` and hover effects in CSS         |
-| **Metadata Images** | Replace favicon files or social preview image      |
+No dependencies, build tools, or package setup required.
 
 ---
 
-## 🌈 Theme Toggle
+## Customization
 
-Aurora Drift supports:
+| Element | Where to Update |
+|---|---|
+| Colors | CSS variables and theme classes in `styles.css` |
+| Sparkle count | Particle array length in `sparkle.js` |
+| Animation speed | Particle velocity values in `sparkle.js` and CSS keyframes |
+| Fonts | Font settings in `styles.css` |
+| Themes | `.theme-ocean` and `.theme-sunset` in `styles.css` |
+| Buttons | `.cta-btn` styles and hover states |
+| Preview assets | Images in `screenshots/` and favicon files |
 
-- 🌓 System dark/light detection
-- 🎚️ Manual theme toggle selector
-- 💾 Preference saved via `localStorage`
+---
+
+## Theme Toggle
+Aurora Drift includes a simple theme selector:
 
 ```html
 <select id="themeSwitcher">
@@ -93,7 +58,9 @@ Aurora Drift supports:
 </select>
 ```
 
-Add this to your CSS:
+The selected theme is saved in `localStorage`, so the visitor’s preference persists across page loads.
+
+Example theme classes:
 
 ```css
 body.theme-ocean {
@@ -119,32 +86,49 @@ body.theme-sunset {
 
 ---
 
-## 🧠 Use Cases
+## Use Cases
 
-- Personal portfolios
-- Hero sections
-- Product landing pages
-- Micro-sites and launch teasers
-- Inspirational banners
+- Portfolio hero sections
+- Product launch pages
+- Small business landing pages
+- Webflow or static-site inspiration
+- Lightweight frontend experiments
+- Micro-sites and promotional pages
 
 ---
 
-## 🖼️ GitHub Social Preview
+## Project Notes
 
-1. Go to your repo **Settings > Social preview**
+This is a small static frontend project built with HTML, CSS, and JavaScript. It is intentionally simple and dependency-free, making it easy to inspect, customize, and adapt.
+
+Future improvements could include:
+
+- Accessibility pass for keyboard and reduced-motion preferences
+- Basic linting and CI checks
+- Additional theme presets
+- Optional componentized version for React or Webflow embeds
+
+---
+
+## GitHub Social Preview
+
+To set the preview image:
+
+1. Go to **Settings > Social preview**
 2. Upload `screenshots/aurora-drift-preview.png`
 
 ---
 
-## 📜 License
+## License
 
-This template is licensed to **ReNewTech Solutions © 2025**  
-Use is permitted for demo, educational, and client projects.  
-**Redistribution or reselling** without permission is strictly prohibited.
+This template is licensed to **ReNewTech Solutions © 2025**.
+
+Use is permitted for demo, educational, and client projects. Redistribution or resale as a standalone template requires permission.
 
 ---
 
-## 👋 Author
+## Author
 
-Built with 💚 by [ReNewTech Solutions](https://renewt3ch.com)  
-Questions? Email: [info@renewt3ch.com](mailto:info@renewt3ch.com)
+Built by [ReNewTech Solutions](https://renewtech.solutions)
+
+Questions or collaboration inquiries: [hello@renewtech.solutions](mailto:hello@renewtech.solutions)
